@@ -1,0 +1,122 @@
+/* ===== Warna brand (satu warna utama: teal) ===== */
+:root {
+    --brand: #0f766e;
+    --brand-dark: #0b5953;
+    --brand-soft: #e6f4f2;
+    --ink: #1f2933;
+    --muted: #5f6c72;
+    --line: #d5e0de;
+    --bg: #f4f7f6;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+/* ===== Navbar (Flexbox) ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 32px;
+    background: var(--brand);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.brand { font-size: 1.15rem; font-weight: 700; }
+.nav-links { display: flex; gap: 20px; }
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 2px;
+    border-bottom: 2px solid transparent;
+}
+.nav-links a:hover, .nav-links a:focus-visible { border-bottom-color: #fff; outline: none; }
+
+/* ===== Hero ===== */
+.hero {
+    padding: 40px 32px 56px;
+    background: var(--brand-soft);
+    border-bottom: 1px solid var(--line);
+}
+.hero h1 { color: var(--brand-dark); font-size: 2rem; margin-bottom: 6px; }
+.hero p { color: var(--muted); max-width: 60ch; }
+
+/* ===== Layout utama ===== */
+.container {
+    max-width: 1000px;
+    margin: -28px auto 40px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ===== Card (Box Model: padding, border, shadow) ===== */
+.card {
+    background: #fff;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(15, 118, 110, 0.12);
+}
+.card h2 {
+    color: var(--brand);
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--brand-soft);
+}
+
+/* ===== Ringkasan (Flexbox) ===== */
+.stats { display: flex; gap: 20px; }
+.stat { flex: 1; display: flex; flex-direction: column; align-items: center; }
+.stat-number { font-size: 2.2rem; font-weight: 700; color: var(--brand); line-height: 1.1; }
+.stat-label { color: var(--muted); font-size: 0.95rem; }
+
+/* ===== Tabel ===== */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 520px; }
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+thead th { background: var(--brand); color: #fff; font-weight: 600; white-space: nowrap; }
+thead th:first-child { border-top-left-radius: 6px; }
+thead th:last-child { border-top-right-radius: 6px; }
+tbody tr:nth-child(even) { background: var(--bg); }
+tbody tr:hover { background: var(--brand-soft); }
+
+/* ===== Badge status ===== */
+.badge {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-pinjam  { background: #fff1d6; color: #8a5a00; border: 1px solid #f2d18b; }
+.badge-kembali { background: var(--brand-soft); color: var(--brand-dark); border: 1px solid #b7dcd7; }
+
+/* ===== Footer ===== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--brand-dark);
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+/* ===== Responsif (mobile) ===== */
+@media (max-width: 640px) {
+    .navbar { flex-direction: column; gap: 8px; padding: 12px 16px; }
+    .hero { padding: 28px 16px 48px; }
+    .hero h1 { font-size: 1.5rem; }
+    .stats { flex-direction: column; gap: 14px; }
+    .card { padding: 16px; }
+}
